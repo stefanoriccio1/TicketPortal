@@ -1,0 +1,16 @@
+aside.hiddenSidebar{
+    display: none !important;
+}
+
+.draggable {
+    cursor: grab;
+  }
+  
+  .draggable.dragging {
+    cursor: grabbing;
+  }
+
+  aside {
+    overflow: auto;
+  }
+
