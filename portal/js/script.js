@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-
+    // Sidebar
     
-    var sidebarButton = document.getElementById('sidebarButton');
-    var asides = document.querySelectorAll('aside');
+    const sidebarButton = document.getElementById('sidebarButton');
+    const asides = document.querySelectorAll('aside');
 
     sidebarButton.addEventListener('click', function() {
         toggleSidebar();

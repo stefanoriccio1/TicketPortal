@@ -10,11 +10,10 @@
     <title>Task Manager</title>
     <script src="https://kit.fontawesome.com/8facfa452a.js" crossorigin="anonymous"></script>
 </head>
-<!-- Wrapper -->
 <body>
-<!-- Navbars Container -->
-<div class="container-fluid vh-100 navbars_container">
-    <div class="row vh-100">
+<!--Wrapper -->
+<div class="container-fluid h-100 navbars_container">
+    <div class="row h-100">
         <!-- Sidebar -->
         <aside class="col-3 col-lg-2 bg-dark text-white d-flex flex-column p-3 collapse d-none d-md-block" id= "sidebar">
             <div class="d-flex align-items-center mb-3 border-bottom pb-2 border-secondary">
@@ -56,7 +55,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                         </ul>
@@ -233,9 +232,8 @@
         <!-- /Main -->
     </div>
 </div>
- <!-- Navbars Container -->
+ <!-- Wrapper -->
 </body>
-<!-- /Wrapper -->
 
 <!-- Modale -->
 <div class="modal fade" id="TaskEditorModal" tabindex="-1" aria-labelledby="TaskEditorModalLabel" aria-hidden="true">
