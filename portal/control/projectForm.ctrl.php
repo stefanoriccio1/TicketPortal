@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['userId'])) {
-    if (isset($_POST)) {
+    if (isset($_POST)&& !isset($_POST['remove_project_id'])) {
 
         $project_name = isset($_POST["project_name"]) ? $_POST["project_name"] : NULL;
         $project_description = isset($_POST["project_description"]) ? $_POST["project_description"] : NULL;
@@ -36,8 +36,31 @@ if (isset($_SESSION['userId'])) {
             echo "Error: " . $e->getMessage();
         }
     }    
+
+    // removing a project from db
+    if(isset($_POST) && isset($_POST['remove_project_id'])){
+        $project_id = $_POST['remove_project_id'];
+
+        try {
+            require_once 'db.ctrl.php';
+            $query = "UPDATE p_projects SET is_active = 0 WHERE id = :project_id";
+            $stmt = $pdo->prepare($query);
+
+            $stmt->bindParam(':project_id', $project_id);
+    
+            $stmt->execute();
+            $stmt = null;
+            $pdo = null;
+            // user not logged
+            $error = base64_encode('Progetto Rimosso!');
+            header("Location: ../projects.php?removed=ok&message=" . $error);
+            exit();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+
+    }
 } else {
-    $_SESSION['messaggio'] = 'Accesso non autorizzato!';
     // user not logged
     $error = base64_encode('Accesso non autorizzato! Esegui il Login');
     header("Location: ../login.php?error=1&message=" . $error);

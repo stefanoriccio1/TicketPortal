@@ -5,6 +5,7 @@
     <title>Mizuno - Projects</title>
     <?php include "includes/head.php" ?>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -19,15 +20,30 @@
             ?>
             <!-- /Navbar -->
             <main class="content px-3 py-4 flex-grow-1">
+                <!-- Error Handler -->
+                <?php if (isset($_GET['inserted']) && $_GET['inserted'] == 'ok' && isset($_GET['message'])) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" id="loginAlert">
+                        <strong> <?= base64_decode($_GET['message']); ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($_GET['removed']) && $_GET['removed'] == 'ok' && isset($_GET['message'])) : ?>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="loginAlert">
+                        <strong> <?= base64_decode($_GET['message']); ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
+                <!-- /Error Handler -->
                 <div class="container-fluid">
                     <div class="mb-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h4>Dashboard</h4>
+                                <h4>Progetti</h4>
                             </div>
                             <div class="col-auto ms-auto">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
                                     <li class="breadcrumb-item"><a href="#">Nome pagina</a></li>
                                 </ol>
                             </div>
@@ -67,9 +83,12 @@
                                                         <td>
                                                             <span class="badge bg-success">Aperto</span>
                                                         </td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-success">Modifica</a>
-                                                            <a href="#" class="btn btn-danger">Cancella</a>
+                                                        <td class= "text-end">
+                                                            <a href="#" class="btn btn-primary">Modifica</a>
+                                                            <form method="POST" action="control/projectForm.ctrl.php" style="display:inline;">
+                                                            <input type="hidden" name="remove_project_id" value="' . $project["id"] . '">
+                                                            <button type = "submit" class="btn btn-danger">Cancella</button>
+                                                            </form>
                                                         </td>
                                                     </tr>';
                                             }

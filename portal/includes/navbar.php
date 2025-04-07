@@ -5,13 +5,13 @@
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="dashboard.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Utenti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Progetti</a>
+                <a class="nav-link active" aria-current="page" href="projects.php">Progetti</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Task</a>

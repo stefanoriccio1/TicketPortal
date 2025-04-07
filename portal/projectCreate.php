@@ -21,11 +21,11 @@
                     <div class="mb-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h4>Creazione nuovo progetto</h4>
+                                <h4>Crea un nuovo progetto</h4>
                             </div>
                             <div class="col-auto ms-auto">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
                                     <li class="breadcrumb-item"><a href="#">Nome pagina</a></li>
                                 </ol>
                             </div>

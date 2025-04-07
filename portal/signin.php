@@ -57,7 +57,7 @@
             </div>
             <!-- /.login-card-body -->
              <div class="card-footer">
-                <a href="login.php">Se hai già un account clicca qui per eseguire Login</a>
+                <a href="login.php">Se hai già un account clicca qui per eseguire il Login</a>
              </div>
         </div>
     </div>
