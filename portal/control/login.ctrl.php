@@ -27,16 +27,16 @@ if (isset($_POST)) {
                     $_SESSION ['user_name'] = $user['name'] . ' ' . $user['last_name'];
                     $_SESSION['userId'] = $user['id'];
                     $username = $user['email'];
-                    header("Location: ../dashboard.php?login=success&username=$username");
+                    header("Location: ../dashboard.php");
                     exit();
                 } else {
                     // wrong password
-                    $error = base64_encode('Wrong Password');
+                    $error = base64_encode('Password errata!');
                     header("Location: ../login.php?error=1&message=" .$error);
                 }
             } else {
                 // user not found
-                $error = base64_encode('User Not Found!');
+                $error = base64_encode('Utente non trovato!');
                 header("Location: ../login.php?error=1&message=" .$error);
             }
         } catch (PDOException $e) {
@@ -45,7 +45,7 @@ if (isset($_POST)) {
         }
     } else {
         // missed field
-        $error = base64_encode('Empty Fields');
+        $error = base64_encode('Devi compilare tutti i campi per proseguire');
         header("Location: ../login.php?error=1&message=" .$error);
     }
 }

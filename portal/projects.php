@@ -39,7 +39,7 @@
                     <div class="mb-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h4>Progetti</h4>
+                                <h4>NOME PROGETTO</h4>
                             </div>
                             <div class="col-auto ms-auto">
                                 <ol class="breadcrumb">
@@ -80,11 +80,23 @@
                                                         <td></td>
                                                         <td>' . $project['date_start'] . '</td>
                                                         <td>' . $project['date_end'] . '</td>
-                                                        <td>
-                                                            <span class="badge bg-success">Aperto</span>
-                                                        </td>
-                                                        <td class= "text-end">
-                                                            <a href="#" class="btn btn-primary">Modifica</a>
+                                                        <td>';
+                                                if ($project['p_status'] == 1) {
+                                                    echo '<span class="badge bg-success"> Aperto </span>';
+                                                } else {
+                                                    echo '<span class="badge bg-danger"> Chiuso </span>';
+                                                }
+
+                                                echo '</td>
+                                                        <td class= "text-end">';
+                                                if ($project['p_status'] == 0) {
+                                                    echo
+                                                    '<form method="POST" action="control/projectForm.ctrl.php" style="display:inline;">
+                                                            <input type="hidden" name="reopen_project_id" value="' . $project["id"] . '">
+                                                            <button type = "submit" class="btn btn-warning">Riapri</button>
+                                                     </form>';
+                                                }
+                                                echo        '<a href="projectEdit.php" class="btn btn-primary">Modifica</a>
                                                             <form method="POST" action="control/projectForm.ctrl.php" style="display:inline;">
                                                             <input type="hidden" name="remove_project_id" value="' . $project["id"] . '">
                                                             <button type = "submit" class="btn btn-danger">Cancella</button>

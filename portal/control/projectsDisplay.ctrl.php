@@ -4,7 +4,7 @@ try {
     require_once "db.ctrl.php";
 
     // Fetching products from the database
-    $query = "SELECT id, name, date_start, date_end FROM p_projects WHERE is_active = 1";
+    $query = "SELECT id, name, date_start, p_status, date_end FROM p_projects WHERE is_active = 1";
     // Preparing and executing the query via pod
     $stmt = $pdo->prepare($query);
     $stmt->execute();

@@ -22,24 +22,31 @@
                         <strong> <?= base64_decode($_GET['message']); ?></strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
+
+                <?php endif; ?>
+                <?php if (isset($_GET['signin']) && $_GET['signin'] == 1 && isset($_GET['message'])) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" id="loginAlert">
+                        <strong> <?= base64_decode($_GET['message']); ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
                 <!-- /Error Handler -->
                 <p class="login-box-msg">Inserisci le tue credenziali</p>
                 <form action="control/signin.ctrl.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="name" name="name" class="form-control" placeholder="Nome" />
+                        <input type="name" name="name" class="form-control" placeholder="Nome" required />
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="last_name" name="last_name" class="form-control" placeholder="Cognome" />
+                        <input type="last_name" name="last_name" class="form-control" placeholder="Cognome" required/>
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" placeholder="Email" />
+                        <input type="email" name="email" class="form-control" placeholder="Email" required/>
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password" />
+                        <input type="password" name="password" class="form-control" placeholder="Password" required/>
                         <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
                     </div>
                     <!--begin::Row-->
@@ -56,7 +63,7 @@
 
             </div>
             <!-- /.login-card-body -->
-             <div class="card-footer">
+             <div class="card-footer text-center">
                 <a href="login.php">Se hai già un account clicca qui per eseguire il Login</a>
              </div>
         </div>

@@ -47,10 +47,9 @@ if (isset($_POST)) {
             $pdo = null;
             $stmt = null;
 
-            $_SESSION['signin_success'] = true;
-
             // Redirecting to the signin page
-            header("Location: ../signin.php");
+            $error = base64_encode("Account creato con successo! Puoi procedere con il login!");
+            header("Location: ../signin.php?signin=1&message=" .$error);
             
             // Terminating the script
             die();

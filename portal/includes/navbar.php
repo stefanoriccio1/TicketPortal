@@ -21,6 +21,9 @@
             </li>
         </ul>
         <ul class="navbar-nav ms-auto" style="display: <?php echo $isLoggedIn ? 'flex' : 'none'; ?>">
+            <li class="nav-item mt-2 me-3">
+                <p>Ciao, <b><?php echo $_SESSION['user_name'] ?></b></p>
+            </li>
             <li class="nav-item">
                 <a class="btn btn-danger text-white" href="control/logout.ctrl.php">Logout</a>
             </li>

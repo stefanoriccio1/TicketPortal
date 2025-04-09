@@ -73,16 +73,16 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group mb-4">
-                                        <label for="">Data Inizio</label>
-                                        <input type="date" name="date_start" class="form-control">
+                                        <label for="date_start">Data Inizio</label>
+                                        <input type="date" class="date-start form-control" name="date_start">
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="">Data Fine</label>
-                                        <input type="date" name="date_end" class="form-control">
+                                        <label for="date_end">Data Fine</label>
+                                        <input type="date" class="date-end form-control" name="date_end">
                                     </div>
                                     <div class="form-group mb-4">
-                                        <label for="">Durata stimata</label>
-                                        <input type="text" name="extimated_duration" class="form-control" disabled>
+                                        <label for="extimated_duration">Durata stimata</label>
+                                        <input type="text" class="extimated-duration form-control" name="extimated_duration" disabled>
                                     </div>
                                 </div>
                             </div>
