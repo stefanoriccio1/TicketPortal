@@ -33,13 +33,19 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
+                <?php if (isset($_GET['updated']) && $_GET['updated'] == 'ok' && isset($_GET['message'])) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" id="loginAlert">
+                        <strong> <?= base64_decode($_GET['message']); ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
 
                 <!-- /Error Handler -->
                 <div class="container-fluid">
                     <div class="mb-3">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h4>NOME PROGETTO</h4>
+                                <h4>Elenco Progetti</h4>
                             </div>
                             <div class="col-auto ms-auto">
                                 <ol class="breadcrumb">
@@ -96,10 +102,13 @@
                                                             <button type = "submit" class="btn btn-warning">Riapri</button>
                                                      </form>';
                                                 }
-                                                echo        '<a href="projectEdit.php" class="btn btn-primary">Modifica</a>
+                                                echo        '<form method="POST" action="control/projectEditForm.ctrl.php" style="display:inline;">
+                                                                <input type="hidden" name="edit_project_id" value="' . $project["id"] . '">
+                                                                <button type = "submit" class="btn btn-primary">Modifica</button>
+                                                            </form>
                                                             <form method="POST" action="control/projectForm.ctrl.php" style="display:inline;">
-                                                            <input type="hidden" name="remove_project_id" value="' . $project["id"] . '">
-                                                            <button type = "submit" class="btn btn-danger">Cancella</button>
+                                                                <input type="hidden" name="remove_project_id" value="' . $project["id"] . '">
+                                                                <button type = "submit" class="btn btn-danger">Cancella</button>
                                                             </form>
                                                         </td>
                                                     </tr>';
@@ -119,8 +128,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="card-footer">
-
+                            <div class="card-footer text-end">
+                                <a href="projectCreate.php" class="btn btn-info">Crea Nuovo Progetto</a>
                             </div>
                         </div>
                     </div>
