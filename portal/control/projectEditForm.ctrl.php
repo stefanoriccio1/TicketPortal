@@ -3,20 +3,18 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION['userId'])) {
-    if (isset($_POST) && isset($_POST['edit_project_id'])){
+    if (isset($_POST) && isset($_POST['display_edit_project_id'])){
 
-        $project_id = isset($_POST['edit_project_id']) ? $_POST['edit_project_id'] : NULL;
+        $project_id = isset($_POST['display_edit_project_id']) ? $_POST['display_edit_project_id'] : NULL;
     
 
-
-        getProject($project_id);
         header("Location: ../projectEdit.php?project=" . $project_id);
 
     }; 
     
-    if (isset($_POST) && isset($_POST['final_edit_project_id'])) {
+    if (isset($_POST) && isset($_POST['edit_project_id'])) {
         
-        $project_id = $_POST['final_edit_project_id'];
+        $project_id = $_POST['edit_project_id'];
         $project_name = $_POST["project_name"];
         $project_description = $_POST["project_description"];
         $project_type = $_POST["project_type"];
@@ -40,19 +38,16 @@ if (isset($_SESSION['userId'])) {
             $stmt->bindParam(':date_end', $date_end);
             $stmt->bindParam(':p_status', $project_status);
     
-    
-    
             $stmt->execute();
             $stmt = null;
             $pdo = null;
-            // user not logged
+
             $updated = base64_encode('Progetto modificato con successo!');
             header("Location: ../projects.php?updated=ok&message=" . $updated);
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-
     }    
 
 } else {

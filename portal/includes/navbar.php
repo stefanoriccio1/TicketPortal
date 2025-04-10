@@ -8,7 +8,7 @@
                 <a class="nav-link active" aria-current="page" href="dashboard.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Utenti</a>
+                <a class="nav-link active" aria-current="page" href="users.php">Utenti</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="projects.php">Progetti</a>

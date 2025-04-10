@@ -1,14 +1,13 @@
 <!-- Creation Form -->
-<?php $project = getProject($_GET['project']); ?>
 <form action="control/projectEditForm.ctrl.php" method="POST">
     <div class="form-group mb-2">
-        <input type="hidden" name="final_edit_project_id" class="form-control" value="<?php echo $_GET['project']; ?>">
+        <input type="hidden" name="edit_project_id" class="form-control" value="<?php echo $_GET['project']; ?>">
     </div>
     <div class="row">
         <div class="col-6">
             <div class="card">
                 <div class="card-header">
-                    Generale
+                    <h5>Informazioni</h5>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-2">
@@ -46,7 +45,7 @@
         <div class="col-6">
             <div class="card">
                 <div class="card-header">
-                    Info
+                    <h5>Date</h5>
                 </div>
                 <div class="card-body">
                     <div class="form-group mb-4">
@@ -62,6 +61,22 @@
                         <input type="text" class="extimated-duration form-control" name="extimated_duration" disabled>
                     </div>
                 </div>
+                <!-- Overtiming -->
+                <div class="row pe-3 ps-3">
+                    <div class="col-6">
+                        <div class="form-group mb-4">
+                            <label for="duration-excluding-weekends">Durata Stimata (giorni lavorativi):</label>
+                            <input type="text" class="duration-excluding-weekends form-control" id="duration-excluding-weekends" readonly>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group mb-4">
+                            <label for="project-delay">Ritardo Progetto:</label>
+                            <input type="text" class="project-delay form-control" id="project-delay" readonly>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Overtiming -->
             </div>
         </div>
         <div class="col-12 text-end">

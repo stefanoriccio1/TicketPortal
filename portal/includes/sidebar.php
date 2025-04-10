@@ -23,13 +23,10 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Action</a>
+                    <a href="users.php" class="sidebar-link">Elenco Utenti</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Another Action</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Something else here</a>
+                    <a href="userCreate.php" class="sidebar-link">Crea Nuovo Utente</a>
                 </li>
             </ul>
         </li>
@@ -52,7 +49,6 @@
                 </li>
             </ul>
         </li>
-
         <li class="sidebar-item">
             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                 data-bs-target="#task" aria-expanded="false" aria-controls="task">
@@ -61,13 +57,10 @@
             </a>
             <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Action</a>
+                    <a href="#" class="sidebar-link">Elenco Task</a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Another Action</a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">Something else here</a>
+                    <a href="#" class="sidebar-link">Crea Task</a>
                 </li>
             </ul>
         </li>

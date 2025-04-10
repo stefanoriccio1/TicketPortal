@@ -68,42 +68,80 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Extimated date calculation on projectCreate.php
 document.addEventListener('DOMContentLoaded', (event) => {
-
   const dateStart = document.querySelector('.date-start');
   const dateEnd = document.querySelector('.date-end');
   const durationField = document.querySelector('.extimated-duration');
+  const durationExcludingWeekendsField = document.querySelector('.duration-excluding-weekends');
+  const delayField = document.querySelector('.project-delay');
 
   if (dateStart && dateEnd && durationField) {
+    if (dateStart.value && dateEnd.value) {
+      calculateDuration();
+      if (durationExcludingWeekendsField) calculateDurationExcludingWeekends();
+      if (delayField) calculateDelay();
+    }
 
+    dateStart.addEventListener('change', () => {
+      calculateDuration();
+      if (durationExcludingWeekendsField) calculateDurationExcludingWeekends();
+      if (delayField) calculateDelay();
+    });
 
-      // Check if both dates are already set on page load
-      if (dateStart.value && dateEnd.value) {
-          calculateDuration();
+    dateEnd.addEventListener('change', () => {
+      calculateDuration();
+      if (durationExcludingWeekendsField) calculateDurationExcludingWeekends();
+      if (delayField) calculateDelay();
+    });
+
+    function calculateDuration() {
+      const startDate = new Date(dateStart.value);
+      const endDate = new Date(dateEnd.value);
+
+      if (startDate && endDate && !isNaN(startDate) && !isNaN(endDate)) {
+        const totalDuration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+        durationField.value = totalDuration + ' giorni';
+      } else {
+        durationField.value = '';
       }
+    }
 
-      dateStart.addEventListener('change', () => {
-          calculateDuration();
-      });
+    function calculateDurationExcludingWeekends() {
+      const startDate = new Date(dateStart.value);
+      const endDate = new Date(dateEnd.value);
 
-      dateEnd.addEventListener('change', () => {
-          calculateDuration();
-      });
+      if (startDate && endDate && !isNaN(startDate) && !isNaN(endDate)) {
+        let durationExcludingWeekends = 0;
+        let currentDate = new Date(startDate);
 
-      function calculateDuration() {
-          const startDate = new Date(dateStart.value);
-          const endDate = new Date(dateEnd.value);
-
-          if (startDate && endDate && !isNaN(startDate) && !isNaN(endDate)) {
-              const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-              durationField.value = duration + ' giorni';
-          } else {
-              
-              durationField.value = '';
+        while (currentDate <= endDate) {
+          const dayOfWeek = currentDate.getDay();
+          if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Exclude Sundays (0) and Saturdays (6)
+            durationExcludingWeekends++;
           }
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        durationExcludingWeekendsField.value = durationExcludingWeekends + ' giorni';
+      } else {
+        durationExcludingWeekendsField.value = '';
       }
+    }
+
+    function calculateDelay() {
+      const endDate = new Date(dateEnd.value);
+      const currentDate = new Date();
+
+      if (endDate && !isNaN(endDate)) {
+        const delay = Math.ceil((currentDate - endDate) / (1000 * 60 * 60 * 24));
+        delayField.value = delay > 0 ? delay + ' giorni' : 'Nessun ritardo';
+      } else {
+        delayField.value = '';
+      }
+    }
   } else {
-      console.log("One or more elements not found");
+    console.log("One or more elements not found");
   }
 });
+
 
 

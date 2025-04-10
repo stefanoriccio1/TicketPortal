@@ -38,7 +38,7 @@
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    Generale
+                                    <h5>Informazioni</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group mb-2">
@@ -69,7 +69,7 @@
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-header">
-                                    Info
+                                    <h5>Date</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group mb-4">

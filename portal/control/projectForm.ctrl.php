@@ -29,8 +29,8 @@ if (isset($_SESSION['userId'])) {
             $stmt = null;
             $pdo = null;
             // user not logged
-            $inserted = base64_encode('Nuovo progetto creato con successo!');
-            header("Location: ../projects.php?inserted=ok&message=" . $inserted);
+            $created = base64_encode('Nuovo progetto creato con successo!');
+            header("Location: ../projects.php?created=ok&message=" . $created);
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -52,8 +52,8 @@ if (isset($_SESSION['userId'])) {
             $stmt = null;
             $pdo = null;
             // user not logged
-            $error = base64_encode('Progetto Rimosso!');
-            header("Location: ../projects.php?removed=ok&message=" . $error);
+            $removed = base64_encode('Progetto Rimosso!');
+            header("Location: ../projects.php?removed=ok&message=" . $removed);
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
