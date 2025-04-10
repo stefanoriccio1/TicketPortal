@@ -103,7 +103,7 @@
                                 <section>
                                     <div class="card mb-3">
                                         <div class=card-header>
-                                            <h5><i class="fa-solid fa-diagram-project me-2" style="font-size: 18px;"></i>Informazioni Utente</h5>
+                                            <h5><i class="fas fa-user me-2" style="font-size: 18px;"></i>Informazioni Utente</h5>
                                         </div>
                                         <div class="card-body">
                                             <ul class="nav nav-tabs" id="userTab" role="tablist">

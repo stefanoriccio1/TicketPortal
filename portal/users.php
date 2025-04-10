@@ -39,7 +39,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
-
+                <?php if (isset($_GET['error']) && $_GET['error'] == 1 && isset($_GET['message'])) : ?>
+                    <div class="alert alert-danger   alert-dismissible fade show" role="alert" id="loginAlert">
+                        <strong> <?= base64_decode($_GET['message']); ?></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
                 <!-- /Error Handler -->
                 <div class="container-fluid">
                     <div class="mb-3">

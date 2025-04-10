@@ -15,13 +15,13 @@ if (isset($_SESSION['userId'])) {
     if (isset($_POST) && isset($_POST['edit_project_id'])) {
         
         $project_id = $_POST['edit_project_id'];
-        $project_name = $_POST["project_name"];
-        $project_description = $_POST["project_description"];
-        $project_type = $_POST["project_type"];
-        $project_status = $_POST ["project_status"];
-        $owner = $_POST["project_owner"];
-        $date_start = $_POST["date_start"];
-        $date_end = $_POST["date_end"];
+        $project_name = isset($_POST["project_name"]) ? $_POST["project_name"] : NULL;
+        $project_description = isset($_POST["project_description"]) ? $_POST["project_description"] : NULL;
+        $project_type = isset($_POST["project_type"]) ? $_POST["project_type"] : NULL;
+        $project_status = isset($_POST["project_status"]) ? $_POST["project_status"] : NULL;
+        $project_owner= isset($_POST["project_owner"]) ? $_POST["project_owner"] : NULL;
+        $date_start = isset($_POST["date_start"]) ? $_POST["date_start"] : NULL;
+        $date_end = isset($_POST["date_end"]) ? $_POST["date_end"] : NULL;
 
         try {
             require_once 'db.ctrl.php';

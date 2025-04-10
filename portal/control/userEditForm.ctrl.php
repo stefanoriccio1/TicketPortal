@@ -15,13 +15,11 @@ if (isset($_SESSION['userId'])) {
     if (isset($_POST) && isset($_POST['edit_user_id'])) {
         
         $user_id = $_POST['edit_user_id'];
-        $user_name = $_POST["name"];
-        $user_last_name = $_POST["last_name"];
-        $user_email = $_POST["email"];
-        $user_status = $_POST ["user_status"];
+        $user_name = isset($_POST["name"]) ? $_POST["name"] : NULL;
+        $user_last_name = isset($_POST["last_name"]) ? $_POST["last_name"] : NULL;
+        $user_email = isset($_POST["email"]) ? $_POST["email"] : NULL;
+        $user_status = isset($_POST["user_status"]) ? $_POST["user_status"] : NULL;
         $user_password = !empty($_POST["password"]) ? password_hash($_POST["password"], PASSWORD_DEFAULT) : null;
-
-
 
         try {
             require_once 'db.ctrl.php';

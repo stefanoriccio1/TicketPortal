@@ -11,7 +11,7 @@
             <img src="images/logo.png" class="img-circle" alt="User Image">
         </div>
         <div class="sidebar-logo">
-            <a href="#"> Stefano Riccio</a>
+            <a href="#"> <?php echo $_SESSION['user_name'] ?></a>
         </div>
     </div>
     <ul class="sidebar-nav">
